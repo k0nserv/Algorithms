@@ -52,12 +52,12 @@ func stableMatching<T: Hashable>(candidates: Set<Candidate<T>>,
     candidates.forEach {
         remainingPossibilitiesForCandidate[$0] = NSMutableOrderedSet(orderedSet: $0.preferences)
     }
-    var freeCandidates = candidates
+    var freeCandidates = LinkedList(candidates)
 
     while !freeCandidates.isEmpty {
         let candidate = freeCandidates.first!
-        guard let potentialMatch = remainingPossibilitiesForCandidate[candidate]?.firstObject as? Candidate<T> else {
-            freeCandidates.remove(candidate)
+        guard let potentialMatch = remainingPossibilitiesForCandidate[candidate.value]?.firstObject as? Candidate<T> else {
+            freeCandidates.remove(node: candidate)
             continue
         }
 
@@ -68,16 +68,16 @@ func stableMatching<T: Hashable>(candidates: Set<Candidate<T>>,
             )
 
             if indexOfCurrentCandidate < indexOfPreviousMatch {
-                currentMatches[potentialMatch] = candidate
-                freeCandidates.insert(matchedCandidatesCurrentMatch)
-                freeCandidates.remove(candidate)
+                currentMatches[potentialMatch] = candidate.value
+                freeCandidates.append(value: matchedCandidatesCurrentMatch)
+                freeCandidates.remove(node: candidate)
             }
         } else {
-            currentMatches[potentialMatch] = candidate
-            let set = remainingPossibilitiesForCandidate[candidate]!
+            currentMatches[potentialMatch] = candidate.value
+            let set = remainingPossibilitiesForCandidate[candidate.value]!
             set.remove(candidate)
-            remainingPossibilitiesForCandidate[candidate] = set
-            freeCandidates.remove(candidate)
+            remainingPossibilitiesForCandidate[candidate.value] = set
+            freeCandidates.remove(node: candidate)
         }
     }
 
