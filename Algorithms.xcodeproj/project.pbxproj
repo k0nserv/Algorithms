@@ -11,6 +11,8 @@
 		D6949CE61D29520800F1305B /* Algorithms.h in Headers */ = {isa = PBXBuildFile; fileRef = D6949CE51D29520800F1305B /* Algorithms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6949CEE1D29528300F1305B /* StableMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949CC91D294A4800F1305B /* StableMatching.swift */; };
 		D6949CEF1D2954AD00F1305B /* Algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6949CE31D29520800F1305B /* Algorithms.framework */; };
+		D6D33CE81D29BA23002E76DB /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D33CE71D29BA23002E76DB /* LinkedList.swift */; };
+		D6D33CEB1D29C176002E76DB /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D33CEA1D29C176002E76DB /* LinkedListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 		D6949CE31D29520800F1305B /* Algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6949CE51D29520800F1305B /* Algorithms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Algorithms.h; sourceTree = "<group>"; };
 		D6949CE71D29520800F1305B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D33CE71D29BA23002E76DB /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		D6D33CEA1D29C176002E76DB /* LinkedListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		D6949CC61D294A4800F1305B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D6D33CE61D29BA1A002E76DB /* Data Structures */,
 				D6949CC71D294A4800F1305B /* main.swift */,
 				D6949CC81D294A4800F1305B /* Stable Matching */,
 			);
@@ -92,6 +97,7 @@
 		D6949CD21D294E4D00F1305B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D6D33CE91D29C16A002E76DB /* Data Structures */,
 				D6949CD91D2950C700F1305B /* Stable Matching */,
 				D6949CD51D294E4D00F1305B /* Info.plist */,
 			);
@@ -113,6 +119,22 @@
 				D6949CE71D29520800F1305B /* Info.plist */,
 			);
 			path = Algorithms;
+			sourceTree = "<group>";
+		};
+		D6D33CE61D29BA1A002E76DB /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				D6D33CE71D29BA23002E76DB /* LinkedList.swift */,
+			);
+			path = "Data Structures";
+			sourceTree = "<group>";
+		};
+		D6D33CE91D29C16A002E76DB /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				D6D33CEA1D29C176002E76DB /* LinkedListTests.swift */,
+			);
+			path = "Data Structures";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D33CEB1D29C176002E76DB /* LinkedListTests.swift in Sources */,
 				D6949CDB1D2950FE00F1305B /* StableMatchingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D33CE81D29BA23002E76DB /* LinkedList.swift in Sources */,
 				D6949CEE1D29528300F1305B /* StableMatching.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
