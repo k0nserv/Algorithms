@@ -43,7 +43,9 @@ func ==<T: Hashable>(lhs: Pair<T>, rhs: Pair<T>) -> Bool {
     return (lhs.first == rhs.first && lhs.second == rhs.second)
 }
 
-func stableMatching<T: Hashable>(candidates: Set<Candidate<T>>, otherCandidates: Set<Candidate<T>>) -> Set<Pair<Candidate<T>>> {
+func stableMatching<T: Hashable>(
+    candidates: Set<Candidate<T>>,
+    otherCandidates: Set<Candidate<T>>) -> Set<Pair<Candidate<T>>> {
     typealias CandidateType = Candidate<T>
 
     var currentMatches: [CandidateType:Candidate<T>] = [:]
@@ -62,9 +64,11 @@ func stableMatching<T: Hashable>(candidates: Set<Candidate<T>>, otherCandidates:
 
         if let matchedCandidatesCurrentMatch = currentMatches[potentialMatch] {
             let indexOfCurrentCandidate = potentialMatch.preferences.index(of: candidate)
-            let indexOfPreviousMatch = potentialMatch.preferences.index(of: matchedCandidatesCurrentMatch)
+            let indexOfPreviousMatch = potentialMatch.preferences.index(
+                of: matchedCandidatesCurrentMatch
+            )
 
-            if (indexOfCurrentCandidate < indexOfPreviousMatch) {
+            if indexOfCurrentCandidate < indexOfPreviousMatch {
                 currentMatches[potentialMatch] = candidate
                 freeCandidates.insert(matchedCandidatesCurrentMatch)
                 freeCandidates.remove(candidate)
@@ -82,6 +86,3 @@ func stableMatching<T: Hashable>(candidates: Set<Candidate<T>>, otherCandidates:
         Pair(first: $1, second: $0)
     })
 }
-
-
-
