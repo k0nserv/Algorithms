@@ -48,6 +48,9 @@ func stableMatching<T: Hashable>(candidates: Set<Candidate<T>>,
     typealias CandidateType = Candidate<T>
 
     var currentMatches: [CandidateType:Candidate<T>] = [:]
+
+    // TODO: Using a NSMUtableOrderedSet here is still not optional since the 
+    // remove in the while body is not O(1)
     var remainingPossibilitiesForCandidate: [Candidate<T>:NSMutableOrderedSet] = [:]
     candidates.forEach {
         remainingPossibilitiesForCandidate[$0] = NSMutableOrderedSet(orderedSet: $0.preferences)
