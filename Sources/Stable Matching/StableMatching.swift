@@ -43,9 +43,8 @@ func ==<T: Hashable>(lhs: Pair<T>, rhs: Pair<T>) -> Bool {
     return (lhs.first == rhs.first && lhs.second == rhs.second)
 }
 
-func stableMatching<T: Hashable>(
-    candidates: Set<Candidate<T>>,
-    otherCandidates: Set<Candidate<T>>) -> Set<Pair<Candidate<T>>> {
+func stableMatching<T: Hashable>(candidates: Set<Candidate<T>>,
+                    otherCandidates: Set<Candidate<T>>) -> Set<Pair<Candidate<T>>> {
     typealias CandidateType = Candidate<T>
 
     var currentMatches: [CandidateType:Candidate<T>] = [:]
